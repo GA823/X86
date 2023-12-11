@@ -6,10 +6,6 @@ git clone --depth=1 --single-branch https://github.com/gngpp/luci-app-design-con
 #Argon Theme
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
-#Linkease
-git clone --depth=1 --single-branch https://github.com/linkease/istore.git
-git clone --depth=1 --single-branch https://github.com/linkease/nas-packages.git
-git clone --depth=1 --single-branch https://github.com/linkease/nas-packages-luci.git
 #Pass Wall
 git clone --depth=1 --single-branch https://github.com/xiaorouji/openwrt-passwall.git
 git clone --depth=1 --single-branch https://github.com/xiaorouji/openwrt-passwall2.git
@@ -20,6 +16,9 @@ git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/
 git clone --depth=1 --single-branch --branch "main" https://github.com/fw876/helloworld.git
 #Home Proxy
 git clone --depth=1 --single-branch --branch "dev" https://github.com/immortalwrt/homebridger.git
+
+#修复OpenClash报错
+sed -i "194s#/usr/lib/lua/luci/http.lua#/usr/share/ucode/luci/http.uc#" ./OpenClash/luci-app-openclash/root/etc/uci-defaults/luci-openclash
 
 #预置OpenClash内核和GEO数据
 export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/core_version
